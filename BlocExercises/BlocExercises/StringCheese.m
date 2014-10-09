@@ -17,22 +17,33 @@
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
     /* WORK HERE */
-    NSRange cheeseRange = [cheeseName rangeOfString:@" cheese" options:(NSCaseInsensitiveSearch | NSLiteralSearch)];
-    return [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
+    NSString *cheeseVar;
+    if ([cheeseName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch].location == NSNotFound){
+        cheeseVar = cheeseName;
+    }
+    else{
+        NSRange cheeseRange = [cheeseName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
+        cheeseVar = [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
+    }
+    return cheeseVar;
+    
 }
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
+    NSString *cheese;
     if (cheeseCount == 1) {
         /* WORK HERE, ASSUMING THERE IS 1 CHEESE */
+        cheese = [NSString stringWithFormat:@"%ld cheese", (long)cheeseCount ];
     } else {
         /* WORK HERE, ASSUMING THERE ARE 2+ CHEESES */
+        cheese = [NSString stringWithFormat:@"%ld cheeses", (long)cheeseCount ];
     }
     
     /*
      (You will learn more about if/else statements in the next checkpoint.)
      */
     
-    return nil;
+    return cheese;
 }
 
 @end
