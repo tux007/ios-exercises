@@ -12,7 +12,20 @@
 
 - (NSString *) stringWithNumbersBetweenNumber:(NSInteger)number andOtherNumber: (NSInteger)otherNumber {
     /* WORK HERE */
-    return @"";
+    NSString *NumberString = @"";
+    
+    if (number > otherNumber) {
+        
+         for (NSInteger i = otherNumber; i <= number; i++) {
+             NumberString = [NumberString stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)i]];
+             }
+         } else {
+            
+             for (NSInteger i = number; i <= otherNumber; i++) {
+                 NumberString = [NumberString stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)i]];
+                 }
+             }
+     return NumberString;
 }
 
 @end
