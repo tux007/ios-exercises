@@ -12,21 +12,32 @@
 
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString {
     /* WORK HERE */
-    return @[];
-}
+    NSArray *starTrekArray = [characterString componentsSeparatedByString:@";"];
+    
+    return starTrekArray;}
 
 - (NSString *) stringOfStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE */
-    return @"";
+    NSString *startTrekArray = [characterArray componentsJoinedByString:@";"];
+    return startTrekArray;
 }
 
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE */
-    return @[];
+    NSMutableArray *alphabeticalArray = [characterArray mutableCopy];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+    NSArray *finalAlphabeticalArray = [alphabeticalArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+    return finalAlphabeticalArray;
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
     /* WORK HERE */
+    for (NSString *myItem in characterArray) {
+        if ([myItem isEqual: @"Worf, son of Mogh, slayer of Gowron"]) {
+            return YES;
+            }
+        }
     return NO;
 }
 
